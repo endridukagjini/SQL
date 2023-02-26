@@ -1,0 +1,42 @@
+# SQLunit4
+create database usedmotorbikes;
+use usedmotorbikes;
+create table motorcycle(
+    motorcycle_id mediumint not null AUTO_INCREMENT,
+    brand varchar(40) not null,
+    years_age tinyint unsigned not null,
+    price float(5,2) not null,
+    primary key(motorcycle_id)
+    );
+    use usedmotorbikes;
+    insert into motorcycle values (null,"Honda",30,300.22);
+    insert into motorcycle values (null,"Yamaha",40,400.33);
+    insert into motorcycle values (null,"Vespa",45,200);
+    insert into motorcycle values (null,"Kymco",29,500.55);
+    insert into motorcycle values (null,"Ducati",37,350.66);
+
+use usedmotorbikes;
+create table sales(
+    sales_id mediumint not null AUTO_INCREMENT,
+    first_name varchar(40) not null,
+    last_name varchar(40) not null,
+    brand varchar(40) REFERENCES usedmotorcycle(brand),
+    years_age tinyint references usedmotorcycle(years_age),
+    price float(5,2) references usedmotorcycle(price),
+    motorcycle_id mediumint references usedmotocycle(motocycle_id),
+    primary key(sales_id)
+    );
+
+    use usedmotorbikes;
+    insert into usedmotorbikes.sales (sales_id,first_name,last_name,motorcycle_id) values (null,"Dimitris","Dimitriou",1);
+    insert into usedmotorbikes.sales (sales_id,first_name,last_name,motorcycle_id) values (null,"Manos","Dimitriou",2);
+    insert into usedmotorbikes.sales (sales_id,first_name,last_name,motorcycle_id) values (null,"George","Giannopoulos",3);
+    insert into usedmotorbikes.sales (sales_id,first_name,last_name,motorcycle_id) values (null,"Kyriakos","Paulou",4);
+    insert into usedmotorbikes.sales (sales_id,first_name,last_name,motorcycle_id) values (null,"Maria","Detoglou",5);
+
+update usedmotorbikes.sales
+set brand=(select brand from motorcycle where sales.motorcycle_id=motorcycle.motorcycle_id);
+update usedmotorbikes.sales
+set years_age=(select years_age from motorcycle where sales.motorcycle_id=motorcycle.motorcycle_id);
+update usedmotorbikes.sales
+set price=(select price from motorcycle where sales.motorcycle_id=motorcycle.motorcycle_id);

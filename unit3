@@ -1,0 +1,12 @@
+# SQLunit3
+create user adam1@localhost identified by '1234';
+create user george42@localhost identified by '1234';
+create user manos82@localhost identified by '1234';
+create user nikos96@localhost identified by '1234';
+create user paul7@localhost identified by '1234';
+grant select,create on *.* to adam1@localhost with MAX_CONNECTIONS_PER_HOUR 50 MAX_UPDATES_PER_HOUR 9;
+grant drop,alter on *.* to george42@localhost with MAX_CONNECTIONS_PER_HOUR 30 MAX_USER_CONNECTIONS 7;
+grant create,update,select,delete on *.* to manos82@localhost with MAX_CONNECTIONS_PER_HOUR 50 MAX_UPDATES_PER_HOUR 9 MAX_USER_CONNECTIONS 34;
+grant select,update on *.* to nikos96@localhost with MAX_CONNECTIONS_PER_HOUR 20 MAX_UPDATES_PER_HOUR 43;
+grant update,drop,delete,create on *.* to paul7@localhost with MAX_USER_CONNECTIONS 50 MAX_UPDATES_PER_HOUR 40;
+flush privileges;

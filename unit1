@@ -1,0 +1,45 @@
+# SQLunit1
+CREATE DATABASE company;
+
+USE company;
+CREATE TABLE employee (
+employee_id MEDIUMINT NOT NULL AUTO_INCREMENT,
+first_name VARCHAR(40) NOT NULL,
+last_name VARCHAR(40) NOT NULL,
+email VARCHAR(40) NOT NULL,
+phone VARCHAR(40) NOT NULL,
+PRIMARY KEY (employee_id)
+);
+
+USE company;
+INSERT INTO employee VALUES (NULL,"George","Papadopoulos","george_papadopoulos@gmail.com","6970665589");
+INSERT INTO employee VALUES (NULL,"Maria","Xasioti","maria_xasioti@gmail.com","6970665580");
+INSERT INTO employee VALUES (NULL,"Manos","Kritsotakis","manos_kritsotakis@gmail.com","6970665581");
+INSERT INTO employee VALUES (NULL,"Nikoletta","Ppapadopoulou","nikoleta_papadopoulou@gmail.com","6970665582");
+INSERT INTO employee VALUES (NULL,"Ioanna","Kalogeraki","ioanna_kalogeraki@gmail.com","6970665583");
+INSERT INTO employee VALUES (NULL,"Nikos","Antoniou","nikos_antoniou@gmail.com","6970665584");
+INSERT INTO employee VALUES (NULL,"Vaggelis","Papastratou","Vavaggelis_papastratou@gmail.com","6970665585");
+INSERT INTO employee VALUES (NULL,"Vasia","Nikolopoulou","vasia_nikolopoulou@gmail.com","6970665586");
+INSERT INTO employee VALUES (NULL,"George","Trigonis","george_trigonis@gmail.com","6970665587");
+INSERT INTO employee VALUES (NULL,"Illias","Stauroulakis","illias_stauroulakis@gmail.com","6970665588");
+
+USE company;
+CREATE TABLE project (
+project_id MEDIUMINT AUTO_INCREMENT NOT NULL,
+deadline DATE NOT NULL,
+employee_id MEDIUMINT NOT NULL,
+PRIMARY KEY (project_id),
+FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+);
+
+USE company;
+INSERT INTO project VALUES (NULL,"2023-01-10",1);
+INSERT INTO project VALUES (NULL,"2023-02-10",2);
+INSERT INTO project VALUES (NULL,"2023-03-10",3);
+INSERT INTO project VALUES (NULL,"2023-01-14",4);
+INSERT INTO project VALUES (NULL,"2023-01-19",5);
+INSERT INTO project VALUES (NULL,"2023-01-25",6);
+INSERT INTO project VALUES (NULL,"2023-02-05",7);
+INSERT INTO project VALUES (NULL,"2023-02-13",8);
+INSERT INTO project VALUES (NULL,"2023-03-04",9);
+INSERT INTO project VALUES (NULL,"2023-03-27",10);

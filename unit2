@@ -1,0 +1,18 @@
+# SQLunit2
+1) use insurance;
+select price,color,year from car;
+
+2) use insurance;
+select price from car
+where price>13000;
+
+3) use insurance;
+select sum(year),avg(year) from car;
+
+4) use insurance;
+select count(customer_id) from car
+where customer_id=8;
+
+5) use insurance;
+select first_name,last_name,age from customer
+where first_name like '%os';
